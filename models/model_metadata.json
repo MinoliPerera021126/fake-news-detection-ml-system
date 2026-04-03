@@ -1,0 +1,12 @@
+{
+  "deployed_model": "Linear SVM",
+  "val_f1_macro": 0.995536,
+  "val_roc_auc": 0.999786,
+  "test_f1_macro": 0.997098,
+  "test_accuracy": 0.997105,
+  "vocab_size": 50000,
+  "ngram_range": "(1,2)",
+  "max_features": 50000,
+  "train_samples": 35918,
+  "test_samples": 4490
+}

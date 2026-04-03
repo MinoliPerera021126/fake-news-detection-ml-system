@@ -1,0 +1,282 @@
+/* --- Global Dark Theme --- */
+:root {
+    --bg-main: #0f172a;       /* Very dark slate for the background */
+    --bg-panel: #1e293b;      /* Slightly lighter panel background */
+    --border-color: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --input-bg: #0f172a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Lock the body to exactly 100% of the viewport height and hide scrolling */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 850px;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(15, 23, 42, 0.3);
+}
+
+.header-content h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.header-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1; /* Takes up remaining height */
+    min-height: 0; /* Important for preventing grid blowout */
+}
+
+.panel {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-panel {
+    border-right: 1px solid var(--border-color);
+}
+
+/* --- Form Styling --- */
+#prediction_form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.input_group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex: 1;
+    min-height: 0;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Make textarea fill the remaining space and remove manual resizing */
+textarea {
+    flex: 1;
+    resize: none; 
+}
+
+button {
+    margin-top: auto; /* Pushes button to bottom */
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 52px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- Results Panel --- */
+.results-panel {
+    justify-content: center;
+}
+
+/* Empty State / Waiting for Input */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--border-color);
+}
+
+.empty-state svg {
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Active Results State */
+#result_section {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+#final_label {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.confidence_wrapper {
+    background-color: rgba(15, 23, 42, 0.5);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.confidence-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+#confidence_text {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.confidence_bar_container {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.confidence_fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prob_details {
+    display: flex;
+    gap: 1rem;
+}
+
+.prob_box {
+    flex: 1;
+    background-color: rgba(15, 23, 42, 0.5);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.prob_label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.prob_val {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Loader */
+#loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
