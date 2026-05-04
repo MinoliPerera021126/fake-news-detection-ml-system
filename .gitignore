@@ -56,3 +56,19 @@ Thumbs.db
 
 # Logs
 *.log
+
+# MLflow default tracking directory
+mlruns/
+
+# Custom artifact directories (if you use them)
+mlartifacts/
+
+# Local MLflow SQLite databases (if you use a local DB for tracking)
+*.db
+mlflow.db
+
+# Data folders
+data/
+
+# Artifacts
+*.png
