@@ -1,74 +1,27 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Virtual environments
-.venv
-.env
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-*.ipynb_checkpoints
-
-# ML Models (large files)
-models/*.pkl
-models/*.h5
-models/*.joblib
-models/*.pt
-models/*.pth
-models/*.onnx
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# MLflow default tracking directory
-mlruns/
-
-# Custom artifact directories (if you use them)
-mlartifacts/
-
-# Local MLflow SQLite databases (if you use a local DB for tracking)
-*.db
-mlflow.db
-
-# Data folders
+# Data
 data/
 
-# Artifacts
-*.png
+# MLflow
+mlruns/
+mlflow.db
+
+# Model binaries
+models/*.pkl
+
+
+# Virtual environment
+myvenv/
+
+# Notebook artifacts
+.ipynb_checkpoints/
+actual-vs-predicted.png
+ablation_results.png
+svm_tuning_curve.png
+final_evaluation.png
+svm_cv_results.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env

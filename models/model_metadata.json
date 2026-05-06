@@ -1,12 +1,26 @@
 {
-  "deployed_model": "Linear SVM",
-  "val_f1_macro": 0.995536,
-  "val_roc_auc": 0.999786,
-  "test_f1_macro": 0.997098,
-  "test_accuracy": 0.997105,
+  "deployed_model": "LinearSVM",
+  "best_params": {
+    "estimator__C": 5.0
+  },
+  "ablation_winner": "Config 4: Title + Text + Subject \u26a0",
+  "deployment_config": "Config 3: Title + Text (baseline)",
+  "leakage_override": true,
+  "feature_config": "TF-IDF ngram(1,2) 50k features \u2014 Title+Text",
+  "baseline_val_f1": 0.995536,
+  "tuned_cv_f1": 0.995462,
+  "test_f1_macro": 0.997545,
+  "test_accuracy": 0.99755,
+  "test_roc_auc": 0.999904,
+  "test_precision": 0.997555,
+  "test_recall": 0.997535,
   "vocab_size": 50000,
   "ngram_range": "(1,2)",
   "max_features": 50000,
   "train_samples": 35918,
-  "test_samples": 4490
+  "val_samples": 4490,
+  "test_samples": 4490,
+  "mlflow_model_name": "FakeNewsClassification_LinearSVM",
+  "mlflow_version": 1,
+  "mlflow_stage": "Production"
 }
