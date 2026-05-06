@@ -12,3 +12,5 @@ xgboost
 mlflow
 tensorflow
 lightgbm
+jupyter
+ipykernel
